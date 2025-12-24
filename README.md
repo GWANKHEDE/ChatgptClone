@@ -58,37 +58,7 @@ This app does not require a login by default, but it requires a valid **Groq API
 
 ---
 
-## 🚀 Step-by-Step Submission Guide
 
-Follow these steps to complete your assignment submission:
+https://github.com/user-attachments/assets/a3df445b-ef1b-4ee0-8e32-4919e14811cb
 
-### 1. Push to GitHub
-- Initialize a git repository if you haven't: `git init`
-- Add all files: `git add .`
-- Commit: `git commit -m "Final: GPTClone with Groq API"`
-- Create a new repo on GitHub and push:
-  ```bash
-  git remote add origin YOUR_REPO_URL
-  git branch -M main
-  git push -u origin main
-  ```
 
-### 2. Generate Working APK (Android)
-- Open a terminal in the project root.
-- Navigate to the android folder: `cd android`
-- Run the build command:
-  ```bash
-  ./gradlew assembleDebug
-  ```
-- Your APK will be generated at: `android/app/build/outputs/apk/debug/app-debug.apk`
-
-### 3. Upload and Share
-- **Google Drive**: Upload the `app-debug.apk` to your Google Drive.
-- **Permissions**: Right-click the file -> "Share" -> Change to "Anyone with the link".
-- **Form**: Copy the link and paste it into the shared Google Form along with your GitHub repo link.
-
-### 4. Final Checklist
-- [ ] GitHub repo is public.
-- [ ] README contains App description and Setup instructions.
-- [ ] `.env` file example is provided (or credentials included in README if required).
-- [ ] APK link is publicly accessible.
