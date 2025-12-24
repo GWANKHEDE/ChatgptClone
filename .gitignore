@@ -40,6 +40,13 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+node_modules/
+android/.gradle/
+android/app/build/
+android/build/
+
+.env
+.DS_Store
 
 # fastlane
 #

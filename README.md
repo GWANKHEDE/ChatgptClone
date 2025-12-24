@@ -1,97 +1,94 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Groq Chat - GPT Clone
 
-# Getting Started
+A ChatGPT-like mobile application built with React Native CLI and the Groq API.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
+- **Real-time AI Chat**: Interact with Groq's high-performance LLMs (llama-3.3-70b-versatile).
+- **Dark / Light Mode**: Automatically switches based on system settings.
+- **Message Bubbles**: Styled user and AI messages with theme-aware colors.
+- **Typed Input**: Multi-line message input with auto-scroll logic.
+- **Clear Chat**: Easily reset the conversation history and local storage.
+- **Typing Animation**: Smooth animated dots to indicate AI is processing.
+- **Local History**: Chat history is persisted locally using Async Storage.
+- **Environment Driven**: API keys and models are managed via environment variables.
 
-## Step 1: Start Metro
+## Tech Stack
+- **Frontend**: React Native (CLI)
+- **Language**: TypeScript
+- **State Management**: React Hooks (useState, useEffect, useRef)
+- **Networking**: Axios
+- **Environment**: react-native-dotenv
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Setup Instructions
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Prerequisites
+- Node.js (v20+)
+- JDK 17
+- Android SDK & Emulator (for Android)
 
-```sh
-# Using npm
-npm start
+### Installation
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the root directory:
+   ```env
+   GROQ_API_KEY=your_actual_groq_api_key_here
+   GROQ_MODEL=llama3-8b-8192
+   ```
 
-# OR using Yarn
-yarn start
-```
+### Running the App
+- **Android**:
+  ```bash
+  npx react-native run-android
+  ```
+- **iOS** (Requires Mac):
+  ```bash
+  npx react-native run-ios
+  ```
 
-## Step 2: Build and run your app
+## Credentials
+This app does not require a login by default, but it requires a valid **Groq API Key** to be placed in the `.env` file.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Developer Notes
+- The app uses `react-native-dotenv` for managing the API key.
+- Conversation history is maintained in the local component state during the session.
+- To use dynamic icons, `react-native-vector-icons` is installed but basic text labels are used for standard setup.
 
-### Android
+---
 
-```sh
-# Using npm
-npm run android
+## 🚀 Step-by-Step Submission Guide
 
-# OR using Yarn
-yarn android
-```
+Follow these steps to complete your assignment submission:
 
-### iOS
+### 1. Push to GitHub
+- Initialize a git repository if you haven't: `git init`
+- Add all files: `git add .`
+- Commit: `git commit -m "Final: GPTClone with Groq API"`
+- Create a new repo on GitHub and push:
+  ```bash
+  git remote add origin YOUR_REPO_URL
+  git branch -M main
+  git push -u origin main
+  ```
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### 2. Generate Working APK (Android)
+- Open a terminal in the project root.
+- Navigate to the android folder: `cd android`
+- Run the build command:
+  ```bash
+  ./gradlew assembleDebug
+  ```
+- Your APK will be generated at: `android/app/build/outputs/apk/debug/app-debug.apk`
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### 3. Upload and Share
+- **Google Drive**: Upload the `app-debug.apk` to your Google Drive.
+- **Permissions**: Right-click the file -> "Share" -> Change to "Anyone with the link".
+- **Form**: Copy the link and paste it into the shared Google Form along with your GitHub repo link.
 
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### 4. Final Checklist
+- [ ] GitHub repo is public.
+- [ ] README contains App description and Setup instructions.
+- [ ] `.env` file example is provided (or credentials included in README if required).
+- [ ] APK link is publicly accessible.
