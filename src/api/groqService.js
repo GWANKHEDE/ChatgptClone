@@ -1,15 +1,9 @@
 import axios from 'axios';
 import { GROQ_API_KEY, GROQ_MODEL } from '@env';
 
-
 const BASE_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
-export interface Message {
-    role: 'user' | 'assistant' | 'system';
-    content: string;
-}
-
-export const sendMessageToGroq = async (messages: Message[]) => {
+export const sendMessageToGroq = async (messages) => {
     if (!GROQ_API_KEY || GROQ_API_KEY === 'your_groq_api_key_here') {
         throw new Error('Invalid or missing GROQ_API_KEY. Please ensure your .env file is correct and the server is restarted.');
     }
@@ -30,7 +24,7 @@ export const sendMessageToGroq = async (messages: Message[]) => {
         );
 
         return response.data.choices[0].message;
-    } catch (error: any) {
+    } catch (error) {
         if (error.response) {
             console.error('Groq API Error:', error.response.data);
             throw new Error(error.response.data.error?.message || 'Failed to fetch response from Groq');

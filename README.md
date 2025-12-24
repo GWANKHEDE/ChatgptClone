@@ -14,7 +14,7 @@ A ChatGPT-like mobile application built with React Native CLI and the Groq API.
 
 ## Tech Stack
 - **Frontend**: React Native (CLI)
-- **Language**: TypeScript
+- **Language**: JavaScript
 - **State Management**: React Hooks (useState, useEffect, useRef)
 - **Networking**: Axios
 - **Environment**: react-native-dotenv

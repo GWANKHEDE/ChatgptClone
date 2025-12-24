@@ -1,14 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Message } from '../api/groqService';
 import { SPACING } from '../constants/theme';
 import { useTheme } from '../hooks/useTheme';
 
-interface MessageBubbleProps {
-    message: Message;
-}
-
-const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
+const MessageBubble = ({ message }) => {
     const isUser = message.role === 'user';
     const { colors } = useTheme();
 

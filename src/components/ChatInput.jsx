@@ -3,12 +3,7 @@ import { View, TextInput, TouchableOpacity, StyleSheet, Keyboard, Text } from 'r
 import { SPACING } from '../constants/theme';
 import { useTheme } from '../hooks/useTheme';
 
-interface ChatInputProps {
-    onSendMessage: (message: string) => void;
-    disabled?: boolean;
-}
-
-const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, disabled }) => {
+const ChatInput = ({ onSendMessage, disabled }) => {
     const [text, setText] = useState('');
     const { colors } = useTheme();
 

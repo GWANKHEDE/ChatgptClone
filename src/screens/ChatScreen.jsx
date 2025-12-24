@@ -15,21 +15,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import MessageBubble from '../components/MessageBubble';
 import ChatInput from '../components/ChatInput';
 import TypingAnimation from '../components/TypingAnimation';
-import { Message, sendMessageToGroq } from '../api/groqService';
+import { sendMessageToGroq } from '../api/groqService';
 import { SPACING } from '../constants/theme';
 import { useTheme } from '../hooks/useTheme';
 
 const STORAGE_KEY = '@chat_messages';
 
-const ChatScreen: React.FC = () => {
-    const [messages, setMessages] = useState<Message[]>([
+const ChatScreen = () => {
+    const [messages, setMessages] = useState([
         {
             role: 'assistant',
             content: 'Hello! I am your AI assistant powered by Groq. How can I help you today?',
         },
     ]);
     const [loading, setLoading] = useState(false);
-    const flatListRef = useRef<FlatList>(null);
+    const flatListRef = useRef(null);
     const { colors, isDarkMode } = useTheme();
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const ChatScreen: React.FC = () => {
         }
     };
 
-    const saveMessages = async (msgs: Message[]) => {
+    const saveMessages = async (msgs) => {
         try {
             await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
         } catch (error) {
@@ -69,8 +69,8 @@ const ChatScreen: React.FC = () => {
         scrollToBottom();
     }, [messages, loading]);
 
-    const handleSendMessage = async (content: string) => {
-        const userMessage: Message = { role: 'user', content };
+    const handleSendMessage = async (content) => {
+        const userMessage = { role: 'user', content };
         const updatedMessages = [...messages, userMessage];
 
         setMessages(updatedMessages);
@@ -79,7 +79,7 @@ const ChatScreen: React.FC = () => {
         try {
             const response = await sendMessageToGroq(updatedMessages);
             setMessages([...updatedMessages, response]);
-        } catch (error: any) {
+        } catch (error) {
             Alert.alert('Error', error.message);
         } finally {
             setLoading(false);
@@ -93,7 +93,7 @@ const ChatScreen: React.FC = () => {
                 text: 'Clear',
                 style: 'destructive',
                 onPress: async () => {
-                    const initialMessage: Message[] = [
+                    const initialMessage = [
                         {
                             role: 'assistant',
                             content: 'Hello! I am your AI assistant powered by Groq. How can I help you today?',
@@ -106,7 +106,7 @@ const ChatScreen: React.FC = () => {
         ]);
     };
 
-    const renderItem = ({ item }: { item: Message }) => <MessageBubble message={item} />;
+    const renderItem = ({ item }) => <MessageBubble message={item} />;
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>

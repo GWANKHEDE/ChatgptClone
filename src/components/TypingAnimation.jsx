@@ -10,7 +10,7 @@ const TypingAnimation = () => {
     const dot3 = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
-        const animate = (dot: Animated.Value, delay: number) => {
+        const animate = (dot, delay) => {
             return Animated.sequence([
                 Animated.delay(delay),
                 Animated.loop(
@@ -41,7 +41,7 @@ const TypingAnimation = () => {
         return () => animation.stop();
     }, [dot1, dot2, dot3]);
 
-    const dotStyle = (dot: Animated.Value) => ({
+    const dotStyle = (dot) => ({
         opacity: dot,
         transform: [
             {
